@@ -22,6 +22,7 @@ locate_template('/inc/backend/elementor/widgets/testimonials-carousel-2.php', tr
 locate_template('/inc/backend/elementor/widgets/progress-bars.php', true, true);
 locate_template('/inc/backend/elementor/widgets/switcher.php', true, true);
 locate_template('/inc/backend/elementor/widgets/pricing-table.php', true, true);
+locate_template('/inc/backend/elementor/widgets/pricing-table-new.php', true, true);
 locate_template('/inc/backend/elementor/widgets/tab-titles.php', true, true);
 locate_template('/inc/backend/elementor/widgets/post-carousel.php', true, true);
 locate_template('/inc/backend/elementor/widgets/post-grid.php', true, true);

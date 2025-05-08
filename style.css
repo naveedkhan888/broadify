@@ -906,7 +906,10 @@ td {
 .is-stuck.blurred_background {
   backdrop-filter: blur(13px);
 }
-
+.blurred_bg {
+  -webkit-backdrop-filter: saturate(180%) blur(40px);
+  backdrop-filter: saturate(180%) blur(40px);
+}
 .blur_background {
   backdrop-filter: blur(13px);
   border-radius: 50%;
@@ -998,7 +1001,6 @@ td {
   vertical-align: middle;
 }
 .xptf-btn:hover, .xptf-btn:visited {
-  background: #1e73be;
   color: #fff;
 }
 
@@ -3582,11 +3584,11 @@ object {
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   color: #191717;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 .xp-heading > span.is_highlight {
   background: #C19977;
-  padding: 2px 10px;
+  padding: 5px 20px;
   border: 1px solid #C19977;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -6689,6 +6691,7 @@ object {
   border-width: 0 0 1px 0;
   border-color: transparent;
   border-radius: 0;
+  background:transparent;
 }
 .dark__form .main_wraper textarea, 
 .dark__form .main_wraper input.wpcf7-form-control {
