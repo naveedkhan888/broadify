@@ -720,18 +720,23 @@ class Xhub_Pricing_Table_New extends Widget_Base{
             <?php endif; ?>
 
             <?php if ( $settings['devices_switch'] === 'yes' && ! empty( $settings['devices'] ) ) : ?>
-                <div class="xptf-devices-list">
-                    <ul class="device-icons">
-                        <?php foreach ( $settings['devices'] as $device ) :
-                            if ( ! empty( $device['selected_icon_2']['value'] ) ) : ?>
-                                <li>
-                                    <i class="<?php echo esc_attr( $device['selected_icon_2']['value'] ); ?>"></i>
-                                </li>
-                            <?php endif;
-                        endforeach; ?>
-                    </ul>
-                </div>
-            <?php endif; ?>
+			    <div class="xptf-devices-list">
+			        <ul class="device-icons">
+			            <?php
+			            $total = count( $settings['devices'] );
+			            foreach ( $settings['devices'] as $index => $device ) :
+			                if ( ! empty( $device['selected_icon_2']['value'] ) ) : ?>
+			                    <li>
+			                        <i class="<?php echo esc_attr( $device['selected_icon_2']['value'] ); ?>"></i>
+			                        <?php if ( $index < $total - 1 ) : ?>
+			                            <span class="plus-separator">+</span>
+			                        <?php endif; ?>
+			                    </li>
+			                <?php endif;
+			            endforeach; ?>
+			        </ul>
+			    </div>
+			<?php endif; ?>
 
             <div class='details <?php echo esc_attr( empty($settings['icon_list']) ? 'no-icon' : '' ); ?>'>
                 <?php echo wp_kses_post( $settings['details'] ); ?>

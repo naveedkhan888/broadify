@@ -4826,6 +4826,29 @@ object {
 /*--------------------------------------------------------------
 ## Pricing Table
 --------------------------------------------------------------*/
+
+.xptf-devices-list .device-icons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.xptf-devices-list .device-icons li {
+    display: flex;
+    align-items: center;
+    font-size: inherit;
+}
+
+.xptf-devices-list .device-icons .plus-separator {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
 .xp-pricing-table {
   position: relative;
   text-align: center;
