@@ -221,12 +221,12 @@ class Xhub_Pricing_Table_New extends Widget_Base{
 		        'label' => __('Plus (+) Color', 'bdevselement'),
 		        'type' => Controls_Manager::COLOR,
 		        'selectors' => [
-		            '{{WRAPPER}} .xptf-devices-list .plus-separator' => 'color: {{VALUE}};',
+		            '{{WRAPPER}} .xptf-devices-list .plus-separator i:before' => 'color: {{VALUE}};',
 		        ],
 		    ]
 		);
 		$this->end_controls_section();
-		
+
 		$this->start_controls_section(
 			'style_table_section',
 			[
@@ -729,7 +729,7 @@ class Xhub_Pricing_Table_New extends Widget_Base{
 			                    <li>
 			                        <i class="<?php echo esc_attr( $device['selected_icon_2']['value'] ); ?>"></i>
 			                        <?php if ( $index < $total - 1 ) : ?>
-			                            <span class="plus-separator">+</span>
+			                            <span class="plus-separator"></span>
 			                        <?php endif; ?>
 			                    </li>
 			                <?php endif;

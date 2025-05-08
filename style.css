@@ -4838,23 +4838,28 @@ object {
     flex-wrap: wrap;
 }
 .xptf-devices-list {
-  margin: -20px 0 32px 0;
+  margin: 0px 0 35px 0;
 }
 
 .xptf-devices-list .device-icons li {
     display: flex;
     align-items: center;
     font-size: 26px;
-    color: #1a1b1e;
+    color: #e72777;
 }
 .xptf-devices-list .device-icons li i {
   color: #e72777;
 }
 
 .xptf-devices-list .device-icons .plus-separator {
-    margin-left: 10px;
-    margin-right: 10px;
-    font-weight: bold;
+    display: flex;
+}
+.xptf-devices-list .device-icons .plus-separator::before {
+  margin-left: 10px;
+  margin-right: 10px;
+  content: "\f19a";
+  font-family: 'xpicon' !important;
+  font-size: 12px;
 }
 
 .xp-pricing-table {
