@@ -180,6 +180,54 @@ class Xhub_Pricing_Table_New extends Widget_Base{
 
 		//Style
 		$this->start_controls_section(
+			'style_section_devices',
+			[
+				'label' => __( 'Devices', 'xhub' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+		    'device_icon_size',
+		    [
+		        'label' => __('Icon Size (px)', 'bdevselement'),
+		        'type' => Controls_Manager::SLIDER,
+		        'range' => [
+		            'px' => [
+		                'min' => 10,
+		                'max' => 100,
+		            ],
+		        ],
+		        'selectors' => [
+		            '{{WRAPPER}} .xptf-devices-list i' => 'font-size: {{SIZE}}{{UNIT}};',
+		        ],
+		    ]
+		);
+
+		$this->add_control(
+		    'device_icon_color',
+		    [
+		        'label' => __('Icon Color', 'bdevselement'),
+		        'type' => Controls_Manager::COLOR,
+		        'selectors' => [
+		            '{{WRAPPER}} .xptf-devices-list i' => 'color: {{VALUE}};',
+		        ],
+		    ]
+		);
+
+		$this->add_control(
+		    'device_plus_color',
+		    [
+		        'label' => __('Plus (+) Color', 'bdevselement'),
+		        'type' => Controls_Manager::COLOR,
+		        'selectors' => [
+		            '{{WRAPPER}} .xptf-devices-list .plus-separator' => 'color: {{VALUE}};',
+		        ],
+		    ]
+		);
+		$this->end_controls_section();
+		
+		$this->start_controls_section(
 			'style_table_section',
 			[
 				'label' => __( 'Table', 'xhub' ),
@@ -671,14 +719,6 @@ class Xhub_Pricing_Table_New extends Widget_Base{
                 <div class="short-text"><?php echo wp_kses_post( $settings['short_text'] ); ?></div>
             <?php endif; ?>
 
-            <div class='details <?php echo esc_attr( empty($settings['icon_list']) ? 'no-icon' : '' ); ?>'>
-                <?php echo wp_kses_post( $settings['details'] ); ?>
-            </div>
-
-            <?php if ( $settings['label_link'] ) : ?>
-                <a <?php echo $this->get_render_attribute_string( 'button' ); ?>><?php echo esc_html( $settings['label_link'] ); ?></a>
-            <?php endif; ?>
-
             <?php if ( $settings['devices_switch'] === 'yes' && ! empty( $settings['devices'] ) ) : ?>
                 <div class="xptf-devices-list">
                     <ul class="device-icons">
@@ -692,6 +732,15 @@ class Xhub_Pricing_Table_New extends Widget_Base{
                     </ul>
                 </div>
             <?php endif; ?>
+
+            <div class='details <?php echo esc_attr( empty($settings['icon_list']) ? 'no-icon' : '' ); ?>'>
+                <?php echo wp_kses_post( $settings['details'] ); ?>
+            </div>
+
+            <?php if ( $settings['label_link'] ) : ?>
+                <a <?php echo $this->get_render_attribute_string( 'button' ); ?>><?php echo esc_html( $settings['label_link'] ); ?></a>
+            <?php endif; ?>
+
 
         </div>
     </div>
