@@ -660,7 +660,7 @@ class Xhub_Pricing_Table_New extends Widget_Base{
             <?php endif; ?>
 
             <?php if ( $settings['price'] ) : ?>
-                <h2><?php echo esc_html( $settings['price'] ); ?></h2>
+                <h2><?php echo ( $settings['price'] ); ?></h2>
             <?php endif; ?>
 
             <?php if ( $settings['price_for'] ) : ?>
