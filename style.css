@@ -4832,15 +4832,23 @@ object {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 10px;
+    gap: 0;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
+}
+.xptf-devices-list {
+  margin: -20px 0 32px 0;
 }
 
 .xptf-devices-list .device-icons li {
     display: flex;
     align-items: center;
-    font-size: inherit;
+    font-size: 26px;
+    color: #959595;
+}
+.xptf-devices-list .device-icons li i {
+  color: #e72777;
 }
 
 .xptf-devices-list .device-icons .plus-separator {
