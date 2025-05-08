@@ -707,14 +707,6 @@ class Xhub_Pricing_Table_New extends Widget_Base{
                 <h6 class="title-table"><span><?php echo esc_html( $settings['title'] ); ?></span></h6>
             <?php endif; ?>
 
-            <?php if ( $settings['price'] ) : ?>
-                <h2><?php echo ( $settings['price'] ); ?></h2>
-            <?php endif; ?>
-
-            <?php if ( $settings['price_for'] ) : ?>
-                <p><?php echo esc_html( $settings['price_for'] ); ?></p>
-            <?php endif; ?>
-
             <?php if ( $settings['short_text'] ) : ?>
                 <div class="short-text"><?php echo wp_kses_post( $settings['short_text'] ); ?></div>
             <?php endif; ?>
@@ -741,6 +733,14 @@ class Xhub_Pricing_Table_New extends Widget_Base{
             <div class='details <?php echo esc_attr( empty($settings['icon_list']) ? 'no-icon' : '' ); ?>'>
                 <?php echo wp_kses_post( $settings['details'] ); ?>
             </div>
+
+            <?php if ( $settings['price'] ) : ?>
+                <h2><?php echo ( $settings['price'] ); ?></h2>
+            <?php endif; ?>
+
+            <?php if ( $settings['price_for'] ) : ?>
+                <p><?php echo esc_html( $settings['price_for'] ); ?></p>
+            <?php endif; ?>
 
             <?php if ( $settings['label_link'] ) : ?>
                 <a <?php echo $this->get_render_attribute_string( 'button' ); ?>><?php echo esc_html( $settings['label_link'] ); ?></a>
