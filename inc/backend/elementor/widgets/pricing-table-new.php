@@ -86,7 +86,7 @@ class Xhub_Pricing_Table extends Widget_Base{
         );
 
         $this->end_controls_section();
-        
+
 		//Content Service box
 		$this->start_controls_section(
 			'content_section',
@@ -634,39 +634,70 @@ class Xhub_Pricing_Table extends Widget_Base{
 
 	protected function render() {
 
-		$settings = $this->get_settings_for_display();
+    $settings = $this->get_settings_for_display();
 
-		if ( ! empty( $settings['link']['url'] ) ) {
-			$this->add_render_attribute( 'button', 'href', $settings['link']['url'] );
+    // Set up button attributes
+    if ( ! empty( $settings['link']['url'] ) ) {
+        $this->add_render_attribute( 'button', 'href', $settings['link']['url'] );
 
-			if ( $settings['link']['is_external'] ) {
-				$this->add_render_attribute( 'button', 'target', '_blank' );
-			}
+        if ( $settings['link']['is_external'] ) {
+            $this->add_render_attribute( 'button', 'target', '_blank' );
+        }
 
-			if ( $settings['link']['nofollow'] ) {
-				$this->add_render_attribute( 'button', 'rel', 'nofollow' );
-			}
-		}
-		$this->add_render_attribute( 'button', 'class', 'xptf-btn xptf-btn-border' );
+        if ( $settings['link']['nofollow'] ) {
+            $this->add_render_attribute( 'button', 'rel', 'nofollow' );
+        }
+    }
+    $this->add_render_attribute( 'button', 'class', 'xptf-btn xptf-btn-border' );
+    ?>
 
-		?>
+    <div class="xp-pricing-table <?php if ( $settings['is_featured'] ) echo 'is-featured'; ?>">
+        <div class="layer-behind"></div>
+        <div class="inner-table">
 
-		<div class="xp-pricing-table <?php if( $settings['is_featured'] ) echo 'is-featured' ?>">
-			<div class="layer-behind"></div>
-			<div class="inner-table">
-				<?php if( $settings['title'] ){ echo '<h6 class="title-table"><span>' .esc_html( $settings['title'] ). '</span></h6>'; } ?>
-				<?php if( $settings['price'] ){ echo '<h2>' .$settings['price']. '</h2>'; } ?>
-				<?php if( $settings['price_for'] ){ echo '<p>'. esc_html( $settings['price_for'] ). '</p>'; } ?>
-				<?php if( $settings['short_text'] ){ echo '<div class="short-text">'. $settings['short_text']. '</div>'; } ?>
-				<div class='details <?php echo esc_attr( !$settings['icon_list'] ? 'no-icon' : '' ); ?>'>
-				    <?php echo wp_kses_post( $settings['details'] ); ?>
-				</div>
-				<?php if( $settings['label_link'] ){ echo '<a ' .$this->get_render_attribute_string( 'button' ). '>' .$settings['label_link']. '</a>'; } ?>
-			</div>
-		</div>
+            <?php if ( $settings['title'] ) : ?>
+                <h6 class="title-table"><span><?php echo esc_html( $settings['title'] ); ?></span></h6>
+            <?php endif; ?>
 
-		<?php
-	}
+            <?php if ( $settings['price'] ) : ?>
+                <h2><?php echo esc_html( $settings['price'] ); ?></h2>
+            <?php endif; ?>
+
+            <?php if ( $settings['price_for'] ) : ?>
+                <p><?php echo esc_html( $settings['price_for'] ); ?></p>
+            <?php endif; ?>
+
+            <?php if ( $settings['short_text'] ) : ?>
+                <div class="short-text"><?php echo wp_kses_post( $settings['short_text'] ); ?></div>
+            <?php endif; ?>
+
+            <div class='details <?php echo esc_attr( empty($settings['icon_list']) ? 'no-icon' : '' ); ?>'>
+                <?php echo wp_kses_post( $settings['details'] ); ?>
+            </div>
+
+            <?php if ( $settings['label_link'] ) : ?>
+                <a <?php echo $this->get_render_attribute_string( 'button' ); ?>><?php echo esc_html( $settings['label_link'] ); ?></a>
+            <?php endif; ?>
+
+            <?php if ( $settings['devices_switch'] === 'yes' && ! empty( $settings['devices'] ) ) : ?>
+                <div class="xptf-devices-list">
+                    <ul class="device-icons">
+                        <?php foreach ( $settings['devices'] as $device ) :
+                            if ( ! empty( $device['selected_icon_2']['value'] ) ) : ?>
+                                <li>
+                                    <i class="<?php echo esc_attr( $device['selected_icon_2']['value'] ); ?>"></i>
+                                </li>
+                            <?php endif;
+                        endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+
+        </div>
+    </div>
+
+    <?php
+}
 
 }
 // After the Xhub_Pricing_Table class is defined, I must register the new widget class with Elementor:
