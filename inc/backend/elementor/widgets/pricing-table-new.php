@@ -221,7 +221,7 @@ class Xhub_Pricing_Table_New extends Widget_Base{
 		        'label' => __('Plus (+) Color', 'bdevselement'),
 		        'type' => Controls_Manager::COLOR,
 		        'selectors' => [
-		            '{{WRAPPER}} .xptf-devices-list .plus-separator i:before' => 'color: {{VALUE}};',
+		            '{{WRAPPER}} .xptf-devices-list .plus-separator:before' => 'color: {{VALUE}};',
 		        ],
 		    ]
 		);
