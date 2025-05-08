@@ -4845,15 +4845,15 @@ object {
     display: flex;
     align-items: center;
     font-size: 26px;
-    color: #959595;
+    color: #1a1b1e;
 }
 .xptf-devices-list .device-icons li i {
   color: #e72777;
 }
 
 .xptf-devices-list .device-icons .plus-separator {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
     font-weight: bold;
 }
 
